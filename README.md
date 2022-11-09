@@ -6,5 +6,7 @@
 
 ### Features
  - State
+ - State hoisting
+ - Persist state
  
  ### Image
