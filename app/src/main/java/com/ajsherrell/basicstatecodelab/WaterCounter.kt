@@ -17,11 +17,20 @@ fun WaterCounter(modifier: Modifier = Modifier) {
     // Water counter counts the number of glasses of water you consume during the day.
     Column(modifier = modifier.padding(16.dp)) {
         var count by remember { mutableStateOf(0) }
-        Text(
-            text = "You've had $count glasses.",
-            modifier = modifier.padding(16.dp)
-        )
-        Button(onClick = { count++ }, Modifier.padding(8.dp)) {
+
+        if (count > 0) {
+            // This text is present if the button has been clicked
+            // at least once; absent otherwise.
+            Text(
+                text = "You've had $count glasses.",
+                modifier = modifier.padding(16.dp)
+            )
+        }
+        Button(
+            onClick = { count++ },
+            Modifier.padding(8.dp),
+            enabled = count < 10
+        ) {
             Text(text = "Add one")
         }
     }
